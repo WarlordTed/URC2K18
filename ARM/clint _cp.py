@@ -6,7 +6,7 @@ pwm.set_pwm_freq(50)
 
 
 s = socket.socket()        
-host = '192.168.43.122'# ip of raspberry pi 
+host = '192.168.1.103'# ip of raspberry pi 
 port = 12328     
 s.connect((host, port))
 
