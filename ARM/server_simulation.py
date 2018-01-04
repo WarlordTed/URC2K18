@@ -4,15 +4,15 @@ from OpenGL.GLUT import *
 
 import socket
 
-s = socket.socket()
+"""s = socket.socket()
 host = '192.168.43.122' #ip of raspberry pi
 port = 12328
 s.bind((host, port))
 
 s.listen(5)
-c, addr = s.accept()
+c, addr = s.accept()"""
 
-print(addr)
+#print(addr)
 def pulseWIdth(angle):
     x=angle
     out_min=650

@@ -38,7 +38,7 @@ if __name__ == '__main__':
 	if(a==1):
    		p1 = Process(target = func1)
    		p1.start()
-   	if(b==1):
+   	"""if(b==1):
    		p2 = Process(target = func2)
    		p2.start()
    	if(c==1):
@@ -49,4 +49,4 @@ if __name__ == '__main__':
    		p4.start()
    	if(e==1):
 		p5 = Process(target = func5)
-   		p5.start()
+   		p5.start()"""

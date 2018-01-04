@@ -2,8 +2,8 @@ import cv2
 from time import sleep
 
 import subprocess  
-c=subprocess.Popen('python /home/devesh/Documents/urc/URC2K18/Video_transmision/sender.py', shell=True)  
-print(c)
+#c=subprocess.Popen('python /home/devesh/Documents/urc/URC2K18/Video_transmision/sender.py', shell=True)  
+
 
 while True:
 	sleep(0.01)
