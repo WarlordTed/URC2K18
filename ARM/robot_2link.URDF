@@ -1,0 +1,90 @@
+<robot
+  name="flat">
+  <link name="base_link"></link>
+
+  <link name="U_shape">  </link>
+  <link
+    name="module_1">
+  </link>
+  <link
+    name="tip_middle_1">
+    
+  </link>
+  <link
+    name="tip_middle">
+   
+  </link>
+  <link
+    name="tip">
+  </link>
+
+
+  <joint
+    name="m1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.00001"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="U_shape" />
+    <axis
+      xyz="0 0 1" />
+	<limit lower="0" upper="1.5708"/>
+  </joint>
+  
+  <joint
+    name="m2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.00001"
+      rpy="0 -0.74 0" />
+    <parent
+      link="U_shape" />
+    <child
+      link="module_1" />
+    <axis
+      xyz="0 -1 0" />
+	 </joint>
+ 
+  <joint
+    name="m3"
+    type="revolute">
+    <origin
+      xyz="0.6 0 0"
+      rpy="0 2.35 0" />
+    <parent
+      link="module_1" />
+    <child
+      link="tip_middle" />
+    <axis
+      xyz="0 -1 0" />
+	<limit lower="0.7" upper="1.5708"/>
+
+  </joint>
+
+  
+
+  <joint
+    name="m6"
+    type="revolute">
+    <origin
+      xyz="0.8 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="tip_middle" />
+    <child
+      link="tip" />
+    <axis
+      xyz="0 -1 0" />
+
+  </joint>
+
+
+ 
+
+
+
+
+</robot>
