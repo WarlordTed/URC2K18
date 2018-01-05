@@ -10,7 +10,7 @@ import socket
 import random
 import sys
 
-Ui_MainWindow, QMainWindow = loadUiType('try2.ui')
+Ui_MainWindow, QMainWindow = loadUiType('gui_dev.ui')
 
 class Main(QMainWindow, Ui_MainWindow):
     def __init__(self,):
