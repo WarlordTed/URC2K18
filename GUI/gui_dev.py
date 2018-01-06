@@ -27,7 +27,7 @@ class Video():
     def convertFrame(self):
         
         try:
-            height,width=self.currentFrame.shape[:-1]
+            height,width=self.currentFrame.shape[:2]
             img=QtGui.QImage(self.currentFrame,
                               width,
                               height,
@@ -64,7 +64,7 @@ class Main(QMainWindow, Ui_MainWindow):
         self.update_label()
         self.graph  ()
 
-        self.video = Video(cv2.VideoCapture(1))#'http://192.168.0.101:8160'))
+        self.video = Video(cv2.VideoCapture(0))#'http://192.168.0.101:8160'))
         self._timer = QtCore.QTimer(self)
         self._timer.timeout.connect(self.play)
         self._timer.start(27)
