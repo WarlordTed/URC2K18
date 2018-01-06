@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1109</width>
-    <height>927</height>
+    <width>732</width>
+    <height>625</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,9 +15,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="2">
-     <widget class="QGraphicsView" name="graphicsView"/>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="videolabel">
       <property name="font">
@@ -34,23 +31,56 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="maplabel">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+    <item row="2" column="0">
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>Main Camera</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Back Camera</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Arm</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Depth View</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Hogger</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Main Camera2 </string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>MAP</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <string>Apply</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
+    <item row="4" column="1">
+     <widget class="QGraphicsView" name="graphicsView"/>
+    </item>
+    <item row="5" column="0">
      <widget class="QLabel" name="datalabel">
       <property name="font">
        <font>
@@ -66,7 +96,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="2">
+    <item row="5" column="1">
      <widget class="QLabel" name="graphlabel">
       <property name="font">
        <font>
@@ -82,10 +112,7 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="2">
-     <layout class="QHBoxLayout" name="sensorgraph"/>
-    </item>
-    <item row="5" column="0">
+    <item row="6" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -316,56 +343,29 @@
       </widget>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="6" column="1">
+     <layout class="QHBoxLayout" name="sensorgraph"/>
+    </item>
+    <item row="4" column="0">
      <widget class="QLabel" name="videoFrame">
       <property name="text">
        <string>TextLabel</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QComboBox" name="comboBox">
-      <item>
-       <property name="text">
-        <string>Main Camera</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Back Camera</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Arm</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Depth View</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Hogger</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Main Camera2 </string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton">
+    <item row="0" column="1">
+     <widget class="QLabel" name="maplabel">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>Apply</string>
+       <string>MAP</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
@@ -376,7 +376,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1109</width>
+     <width>732</width>
      <height>25</height>
     </rect>
    </property>
