@@ -5,12 +5,13 @@ from PyQt5.QtWidgets import QApplication
 
 from matplotlib.backends.backend_qt5agg import (FigureCanvasQTAgg as FigureCanvas,NavigationToolbar2QT as NavigationToolbar)
 from matplotlib.figure import Figure
+import numpy as np
 
 import socket
 import random
 import sys
 import cv2
-import numpy as np
+
 Ui_MainWindow, QMainWindow = loadUiType('gui_dev.ui')
 
 class Video():
@@ -25,9 +26,8 @@ class Video():
             self.currentFrame=cv2.cvtColor(readFrame,cv2.COLOR_BGR2RGB)
  
     def convertFrame(self):
-        
         try:
-            height,width=self.currentFrame.shape[:2]
+            height,width=self.currentFrame.shape[:-1]#If video's not working change shape as - [:2][:1]
             img=QtGui.QImage(self.currentFrame,
                               width,
                               height,
@@ -51,18 +51,21 @@ class Main(QMainWindow, Ui_MainWindow):
         
         #self.list_alt = [random.randint(0, 10) for i in range(5)]
         self.item = []
-        self.vol=[]
+        self.vol = []
+
         self.getdata()
+
         figure = Figure(facecolor='white')
         self.canvas = FigureCanvas(figure)
         self.sensorgraph.addWidget(self.canvas)
-        self.canvas.draw()
+        #self.canvas.draw()
 
         self.plotgraph = figure.add_subplot('111', axisbg='white')
         self.plotgraph.clear()
         #self.plotgraph.plot(self.item,'g')
+
         self.update_label()
-        self.graph  ()
+        self.graph()
 
         self.video = Video(cv2.VideoCapture(0))#'http://192.168.0.101:8160'))
         self._timer = QtCore.QTimer(self)
@@ -75,6 +78,14 @@ class Main(QMainWindow, Ui_MainWindow):
         self.vol.append(self.item[0])
         QtCore.QTimer.singleShot(1000, lambda: self.getdata())
 
+    def play(self):
+        try:
+            self.video.captureNextFrame()
+            self.videoFrame.setPixmap(self.video.convertFrame())
+            self.videoFrame.setScaledContents(True)
+        except TypeError:
+            print ("No frame")
+
     def update_label(self):
         self.label1.setText(self.item[0])
         self.label2.setText(self.item[1])
@@ -82,15 +93,7 @@ class Main(QMainWindow, Ui_MainWindow):
         self.label4.setText(self.item[3])
         self.label5.setText(self.item[4])
         QtCore.QTimer.singleShot(1000, lambda: self.update_label())
-    
-    def play(self):
-        try:
-            self.video.captureNextFrame()
-            self.videoFrame.setPixmap(
-                self.video.convertFrame())
-            self.videoFrame.setScaledContents(True)
-        except TypeError:
-            print ("No frame")
+
     def graph(self):
         if len(self.vol)>5:
             del(self.vol[0])
@@ -106,8 +109,7 @@ class Main(QMainWindow, Ui_MainWindow):
             self.plotgraph.plot(self.vol,'b')
             self.plotgraph.axes.get_xaxis().set_visible(True)
             self.plotgraph.axes.get_yaxis().set_visible(True)
-        QtCore.QTimer.singleShot(500, lambda: self.graph())
-
+        QtCore.QTimer.singleShot(1000, lambda: self.graph())
 
 if __name__ == '__main__' :
     app=QApplication(sys.argv)

@@ -9,7 +9,7 @@ serversocket = socket.socket(
 # get local machine name
 host = socket.gethostname()                           
 
-port = 8500
+port = 8501
 
 # bind to the port
 serversocket.bind((host, port))                                  
